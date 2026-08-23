@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Carolina | Product Management</title>
+
+<style>
+:root{
+    --bg:#f6f7f9;
+    --white:#fff;
+    --text:#172033;
+    --muted:#667085;
+    --line:#e4e7ec;
+    --orange:#ff6b00;
+    --orange-light:#fff1e6;
+    --blue:#2563eb;
+    --blue-light:#eff6ff;
+    --green:#16a34a;
+    --red:#dc2626;
+    --purple:#7c3aed;
+    --purple-light:#f5f3ff;
+    --dark:#111827;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(246,247,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{height:70px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:800}.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:14px;color:#475467}
+.nav-links a:hover{color:var(--orange)}
+section{padding:80px 0}.section-label{color:var(--orange);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+h2{font-size:40px;line-height:1.15;letter-spacing:-1.5px}.section-description{color:var(--muted);width:100%;max-width:100%;margin-top:12px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:25px}.mt40{margin-top:40px}
+.hero{padding:100px 0 80px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.badge{display:inline-flex;background:var(--orange-light);color:#c2410c;border-radius:30px;padding:7px 13px;font-size:12px;font-weight:800;margin-bottom:22px}
+h1{font-size:clamp(45px,6vw,76px);line-height:1;letter-spacing:-4px;margin-bottom:22px}h1 span{color:var(--orange)}
+.hero-description{color:var(--muted);font-size:19px;width:100%;max-width:100%;margin-bottom:28px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{padding:12px 19px;border-radius:9px;border:1px solid var(--dark);font-size:14px;font-weight:700}
+.button.primary{background:var(--dark);color:white}.button.secondary{background:white}
+.hero-panel{background:var(--dark);color:white;padding:30px;border-radius:20px;box-shadow:0 20px 45px rgba(0,0,0,.12)}
+.hero-panel small{color:#98a2b3;text-transform:uppercase;letter-spacing:1px}.hero-panel h2{font-size:30px;line-height:1.15;margin:55px 0}.hero-panel span{color:var(--orange)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about-text p{color:#475467;margin-bottom:16px;width:100%;max-width:100%}.about-card p{color:var(--muted);margin-top:8px;width:100%;max-width:100%}
+.case-intro{background:var(--dark);color:white}.case-top{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
+.case-title{font-size:clamp(40px,5vw,62px);line-height:1;letter-spacing:-3px}.case-subtitle{color:#aab1bd;width:100%;max-width:100%}
+.study-tag{display:inline-block;color:var(--orange);font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:14px}
+.notice{margin-top:25px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:16px 18px;border-radius:12px;font-size:13px;width:100%;max-width:100%}
+.benchmark,.pattern-grid,.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.company{font-size:20px;font-weight:800;margin-bottom:4px}.company-note{color:var(--muted);font-size:11px;margin-bottom:18px}
+.benchmark-number{font-size:30px;font-weight:800;color:var(--orange)}.benchmark-label{font-size:12px;color:#475467;margin-bottom:14px}
+.benchmark-source{font-size:11px;color:var(--blue);padding-top:10px;border-top:1px solid var(--line)}
+.pattern-icon{font-size:25px;margin-bottom:12px}.pattern h3{margin-bottom:7px}.pattern p,.problem-card p{color:var(--muted);font-size:13px;width:100%;max-width:100%}
+.simulated{background:#f1f5f9}.simulated-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:35px}
+.sim-card{background:white;border:1px solid var(--line);border-radius:15px;padding:22px}.sim-card .number{font-size:30px;font-weight:800;color:var(--blue)}
+.sim-card small{color:var(--muted);font-size:11px}.sim-badge,.proposed{display:inline-block;background:var(--blue-light);color:var(--blue);padding:4px 7px;border-radius:5px;font-size:9px;font-weight:800;margin-bottom:10px}
+.board-section{background:#eef0f4}.board{background:#dfe3e8;padding:20px;border-radius:18px;overflow-x:auto;margin-top:35px}
+.board-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;min-width:1050px}.board-title{font-weight:800}.board-meta{font-size:12px;color:#667085}
+.swimlanes{min-width:1050px;display:grid;gap:10px}.lane{display:grid;grid-template-columns:150px repeat(4,1fr);gap:10px}
+.lane-name,.board-cell{background:#f8f9fb;border-radius:10px}.lane-name{padding:14px;font-size:13px;font-weight:800}.board-cell{min-height:125px;padding:11px}
+.column-title{font-size:11px;text-transform:uppercase;color:#667085;font-weight:800}
+.sticky{background:white;border:1px solid #d9dde3;border-left:4px solid var(--orange);border-radius:8px;padding:11px;font-size:12px;box-shadow:0 2px 5px rgba(0,0,0,.04)}
+.sticky.blue{border-left-color:var(--blue)}.sticky.green{border-left-color:var(--green)}.sticky.red{border-left-color:var(--red)}.sticky.purple{border-left-color:var(--purple)}
+.sticky strong{display:block;font-size:12px;margin-bottom:4px}
+.problem-card .number{color:var(--red);font-size:11px;font-weight:800;margin-bottom:16px}.problem-card h3{margin-bottom:7px}
+.legal-section{background:white}.legal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:35px}
+.legal-card{background:#fafafa}.legal-card .tag{display:inline-block;background:var(--purple-light);color:var(--purple);padding:5px 8px;border-radius:5px;font-size:10px;font-weight:800;margin-bottom:13px}
+.legal-card h3{font-size:17px;margin-bottom:7px}.legal-card p{color:var(--muted);font-size:13px;width:100%;max-width:100%}
+.solution{background:#f1f5f9}.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;margin-top:40px}
+.solution-box{background:white;border-radius:18px;padding:28px;border:1px solid var(--line)}
+.solution-step{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}.solution-step:last-child{border-bottom:none}
+.step-number{width:30px;height:30px;background:var(--dark);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.solution-step strong{display:block}.solution-step span{color:var(--muted);font-size:13px}
+.product-screen{background:var(--dark);border-radius:28px;padding:12px;width:100%;max-width:360px;margin:auto;box-shadow:0 25px 50px rgba(0,0,0,.15)}
+.screen{background:white;border-radius:20px;padding:24px}.screen-top{font-size:12px;color:#667085;margin-bottom:22px}
+.order-status{background:var(--orange-light);padding:14px;border-radius:10px;margin:14px 0}.order-status strong{display:block;color:#c2410c}
+.screen-text{font-size:12px;color:#667085}.action{display:block;background:var(--dark);color:white;text-align:center;padding:11px;border-radius:8px;font-size:12px;font-weight:700;margin-top:10px}
+.action.secondary{background:white;color:var(--text);border:1px solid #ddd}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}.metric-card h3{margin-bottom:7px}.metric-card p{color:var(--muted);font-size:14px;width:100%;max-width:100%}
+.takeaway{background:var(--dark);color:white}.takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px}.takeaway p{color:#aab1bd;margin-top:14px;width:100%;max-width:100%}
+.takeaway-list{list-style:none}.takeaway-list li{padding:11px 0;border-bottom:1px solid #333b48}.takeaway-list li::before{content:"→";color:var(--orange);margin-right:10px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}.skill{background:white;border:1px solid var(--line);padding:9px 14px;border-radius:25px;font-size:13px}
+footer{background:#0b0f16;color:white;padding:60px 0}.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.footer-links{display:flex;gap:10px}.footer-links a{border:1px solid #343b48;padding:10px 15px;border-radius:8px;font-size:13px}.footer-links a:hover{border-color:var(--orange);color:var(--orange)}
+.disclaimer{border-top:1px solid #252c37;margin-top:40px;padding-top:18px;color:#667085;font-size:11px;width:100%;max-width:100%}
+.cluster-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px;font-weight:800}
+.flow-step{background:white;border:1px solid var(--line);border-radius:12px;padding:14px 18px}.flow-arrow{color:var(--orange);font-size:20px}
+.cluster-table{width:100%;border-collapse:collapse;margin-top:25px;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cluster-table th,.cluster-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+.cluster-table th{background:#f8f9fb}.cluster-table tr:last-child td{border-bottom:none}
+.chatbot-box{background:var(--purple-light);border:1px solid #ddd6fe;color:#4c1d95;border-radius:15px;padding:20px;margin-top:18px}
+@media(max-width:850px){
+.nav-links{display:none}.hero-grid,.case-top,.about-grid,.solution-grid,.takeaway-grid{grid-template-columns:1fr}
+.benchmark,.pattern-grid,.problem-grid,.legal-grid{grid-template-columns:1fr 1fr}.simulated-grid{grid-template-columns:1fr 1fr}
+.footer-grid{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:550px){
+section{padding:65px 0}h2{font-size:32px}h1{letter-spacing:-2px;font-size:48px}.hero{padding:70px 0}
+.benchmark,.pattern-grid,.problem-grid,.simulated-grid,.legal-grid,.metrics-grid{grid-template-columns:1fr}.hero-panel h2{margin:40px 0}
+}
+</style>
+</head>
+<body>
+
+<header><div class="container"><nav>
+<a href="#" class="logo">Ana<span>.</span></a>
+<ul class="nav-links"><li><a href="#sobre">Sobre</a></li><li><a href="#case1">Case 01</a></li><li><a href="#case2">Case 02</a></li><li><a href="#contato">Contato</a></li></ul>
+</nav></div></header>
+
+<section class="hero"><div class="container hero-grid"><div>
+<div class="badge">PRODUTOS DIGITAOS · LEGAL PRODUCT</div>
+<h1>Direito + Produto + <span>Tecnologia.</span></h1>
+<p class="hero-description">Advogada de Direito Bancário em transição para Produtos digitais, atuando em áreas como Product Manager, Product Owner ou Analista de Produtos.</p>
+<div class="buttons"><a href="#case1" class="button primary">Ver Cases</a><a href="https://www.linkedin.com/in/ana-carolina-vieira-2a7933201/" target="_blank" class="button secondary">LinkedIn</a></div>
+</div><div class="hero-panel"><small>Minha abordagem</small><h2>Investigar o problema antes de <span>desenhar a solução.</span></h2><small>Customer · Business · Technology · Legal</small></div>
+</div></section>
+
+<section id="sobre"><div class="container">
+<div class="section-label">01 — Sobre</div><h2>Uma perspectiva jurídica aplicada a Produto.</h2>
+<p class="section-description">Minha experiência no Direito Bancário desenvolveu competências em análise de riscos, contratos, interpretação normativa, resolução de problemas e comunicação com diferentes áreas.</p>
+<div class="about-grid mt40"><div class="about-text">
+<p>Ao conhecer Produtos digitais, encontrei uma área que conecta essas habilidades com tecnologia, negócio e experiência do cliente.</p>
+<p>Minha proposta é utilizar o conhecimento jurídico não apenas para identificar riscos, mas para participar da construção de soluções mais claras, seguras e eficientes.</p>
+</div><div class="card about-card"><strong>Meu foco</strong><p>Produtos e serviços digitais nas áreas financeiras, mobilidade, logística e marketplaces nos quais experiência do cliente, negócio, tecnologia e regulação precisam caminhar juntos.</p></div></div>
+</div></section>
+
+<!-- CASE 02 -->
+<section id="case2" class="case-intro" style="border-top:5px solid var(--orange)"><div class="container"><div class="case-top"><div>
+<div class="study-tag">CASE 02 FICTÍCIO · MOBILIDADE & OPERAÇÕES</div><h2 class="case-title">FrotaPro<br>Gestão Preventiva & Sinistros de Frota</h2>
+</div><p class="case-subtitle">Como prevenir disputas de avarias pré-existentes (check-in/check-out), evitar prejuízos com arranhões não identificados e acelerar a liberação de sinistros com vistoria guiada e manutenção preditiva?<br><br>A FrotaPro é um ecossistema fictício de gestão de frotas e locação de veículos criado para este portfólio.</p>
+</div><div class="notice"><strong>Contexto do Negócio:</strong> Em operações de frotas e locação, a falta de registro prévio do estado do veículo gera perdas milionárias com avarias sem autoria e atrasos em reformas e perícias de seguros.</div></div></section>
+
+<section><div class="container"><div class="section-label">10 — Problemas Jurídicos</div><h2>Quando uma ocorrência operacional pode virar uma disputa?</h2><p class="section-description">A operação de avarias e sinistros também envolve riscos jurídicos que podem transformar uma ocorrência operacional em disputa, custo ou judicialização.</p>
+<div class="legal-grid">
+<div class="card legal-card"><span class="tag">🛡️ FRAUDE E INCONSISTÊNCIAS</span><h3>Como comprovar o dano?</h3><p>Sem evidências confiáveis, diferenciar uma avaria ocorrida durante a locação de um dano preexistente, omitido ou apresentado de forma inconsistente se torna mais complexo e pode gerar custos adicionais de análise e perícia.</p></div>
+<div class="card legal-card"><span class="tag">⚖️ RESPONSABILIDADE</span><h3>Quem causou a avaria?</h3><p>Quando não existe um registro confiável do estado do veículo antes e depois da utilização, a empresa pode ter dificuldade para sustentar a atribuição de responsabilidade, aumentando o risco de contestação, cobrança indevida e conflito com o cliente.</p></div>
+<div class="card legal-card"><span class="tag">🔎 PERÍCIA</span><h3>Como comprovar o sinistro?</h3><p>Evidências insuficientes podem exigir perícia, documentos adicionais ou novas análises. Quanto mais complexa a comprovação, maior pode ser o tempo de resolução e o custo operacional.</p></div>
+<div class="card legal-card"><span class="tag">📄 DOCUMENTAÇÃO</span><h3>Quanto é necessário provar?</h3><p>Documentação insuficiente pode impedir a análise adequada. Documentação excessiva pode aumentar o atrito sem agregar valor à decisão. O desafio é provar o necessário sem exigir o que é desnecessário.</p></div>
+</div>
+<div class="notice"><strong>⚠️ Evolução do risco:</strong> uma avaria pode começar como um problema operacional e evoluir para <strong>avaria → contestação → sinistro → perícia → disputa → possível judicialização.</strong> Por isso, qualidade da evidência e rastreabilidade ajudam a reduzir riscos jurídicos e financeiros.</div>
+</div></section>
+
+<section class="simulated"><div class="container"><div class="section-label">11 — Dados Simulados da FrotaPro</div><h2>Cenário operacional e financeiro antes do produto</h2><p class="section-description">O cenário abaixo é simulado para demonstrar como uma ocorrência operacional pode gerar custos diretos e indiretos para a operação.</p></div>
+<div class="simulated-grid">
+    <div class="sim-card">
+        <span class="sim-badge">SIMULADO</span>
+        <div class="number">R$ 480 mil</div>
+        <div style="font-weight:800; font-size:14px; line-height:1.35; margin-top:8px;">
+            custo mensal estimado com avarias não identificadas
+        </div>
+        <div style="color:var(--muted); font-size:11px; line-height:1.5; margin-top:8px;">
+            Arranhões e danos descobertos após a devolução, sem evidência suficiente para atribuição de responsabilidade.
+        </div>
+    </div>
+    <div class="sim-card">
+        <span class="sim-badge">SIMULADO</span>
+        <div class="number">12,5 dias</div>
+        <div style="font-weight:800; font-size:14px; line-height:1.35; margin-top:8px;">
+            tempo médio estimado para liberação
+        </div>
+        <div style="color:var(--muted); font-size:11px; line-height:1.5; margin-top:8px;">
+            Período entre o aviso da ocorrência e o início do reparo, considerando triagem, análise e resolução do caso.
+        </div>
+    </div>
+    <div class="sim-card">
+        <span class="sim-badge">SIMULADO</span>
+        <div class="number">24%</div>
+        <div style="font-weight:800; font-size:14px; line-height:1.35; margin-top:8px;">
+            sinistros recusados na 1ª análise
+        </div>
+        <div style="color:var(--muted); font-size:11px; line-height:1.5; margin-top:8px;">
+            Ocorrências que exigem reenvio ou complementação de evidências, aumentando o retrabalho e prolongando o tempo de resolução.
+        </div>
+    </div>
+    <div class="sim-card">
+        <span class="sim-badge">SIMULADO</span>
+        <div class="number">15%</div>
+        <div style="font-weight:800; font-size:14px; line-height:1.35; margin-top:8px;">
+            fração estimada da frota inativa por avaria
+        </div>
+        <div style="color:var(--muted); font-size:11px; line-height:1.5; margin-top:8px;">
+            Veículos parados aguardando triagem, autorização ou reparo.
+        </div>
+    </div>
+</div>
+<div class="notice"><strong>Veículo parado = capacidade de locação indisponível = potencial receita não gerada.</strong><br><br>O impacto financeiro não termina no reparo. Uma avaria pode gerar uma cadeia de custos: <strong>dano não identificado → contestação / sinistro → retrabalho → veículo parado → menor disponibilidade da frota → potencial perda de receita.</strong><br><br>Por isso, reduzir o tempo de resolução de uma avaria não é apenas uma melhoria operacional. É uma oportunidade de reduzir custos e recuperar disponibilidade da frota.</div>
+</div></section>
+
+<section class="legal-section"><div class="container"><div class="section-label">12 — Legal & Compliance Lens</div><h2>Transformando riscos jurídicos em regras de produto</h2> 
+<p class="section-description">
+    Vistorias e aberturas de sinistro dependem de evidências confiáveis e informações rastreáveis.
+    <br><br>
+    Quando essas evidências são incompletas, a operação pode entrar em um ciclo de contestação, retrabalho, demora na análise e veículo parado.
+    <br><br>
+    A perspectiva jurídica entra para transformar esses riscos em regras de produto, criando requisitos que aumentem a segurança da operação sem tornar a jornada excessivamente complexa.
+</p>
+<div class="legal-grid">
+<div class="card legal-card"><span class="tag">CONTRATOS</span><h3>Registro de Avarias</h3><p>Registro fotográfico na retirada e devolução para diferenciar danos preexistentes de novos danos e fortalecer a comprovação da ocorrência.</p></div>
+<div class="card legal-card"><span class="tag">SEGUROS</span><h3>Padrão Probatório</h3><p>Definição dos requisitos mínimos de imagem e informação para reduzir recusas, reenvios e retrabalho na análise de sinistros.</p></div>
+<div class="card legal-card"><span class="tag">LGPD</span><h3>Tratamento de Dados</h3><p>Regras para coleta, utilização e armazenamento de documentos e dados de terceiros envolvidos no acidente, considerando a necessidade e finalidade de cada informação.</p></div>
+<div class="card legal-card"><span class="tag">AUDITORIA</span><h3>Registros Auditáveis</h3><p>Registro de geolocalização, horário, veículo e identificação da operação, criando uma trilha de evidências para análise, contestação e auditoria.</p></div>
+</div></div></section>
+
+<section><div class="container"><div class="section-label">13 — Discovery & Gargalos da Operação</div><h2>Por que processos de vistoria e sinistro tradicionais geram tanto prejuízo?</h2><p class="section-description">Vistorias e aberturas de sinistro dependem de evidências confiáveis e informações rastreáveis. Quando essas evidências são incompletas, a operação pode entrar em um ciclo de contestação, retrabalho, demora na análise e veículo parado.</p>
+<div class="pattern-grid">
+<div class="card pattern"><div class="pattern-icon">🔍</div><h3>Avarias sem autoria</h3><p>Pequenos danos podem não ter evidência suficiente para definir quando ocorreram.</p><p style="margin-top:10px"><strong>Solução — Câmeras Inteligentes + YOLO</strong><br>Captura automática na entrada e saída, com detecção de veículo e possíveis avarias.</p><p style="margin-top:10px"><strong>Entrada → captura → detecção → comparação → validação</strong></p></div>
+<div class="card pattern"><div class="pattern-icon">📸</div><h3>Evidências inválidas</h3><p>Fotos escuras, desfocadas ou incompletas geram reenvio e retrabalho.</p><p style="margin-top:10px"><strong>Solução — Captura Padronizada</strong><br>IA verifica a qualidade da evidência e solicita nova captura quando necessário.</p><p style="margin-top:10px"><strong>Menos evidência inválida → menos retrabalho → análise mais rápida.</strong></p></div>
+<div class="card pattern"><div class="pattern-icon">🛡️</div><h3>Fraude, seguro e responsabilidade</h3><p>Sem histórico confiável, é mais difícil diferenciar dano preexistente, novo dano ou acidente.</p><p style="margin-top:10px"><strong>Solução — Linha do Tempo Visual</strong><br>Imagens, data, horário e localização formam um histórico do veículo, com validação humana antes de decisões de responsabilidade ou cobrança.</p></div>
+<div class="card pattern"><div class="pattern-icon">⏳</div><h3>Alto downtime</h3><p>Veículos podem permanecer parados aguardando análise, perícia, autorização ou reparo.</p><p style="margin-top:10px"><strong>Solução — Triagem Inteligente</strong><br>Direcionamento da ocorrência para reparo, seguro ou fluxo adequado.</p><p style="margin-top:10px"><strong>Avaria → triagem → validação → reparo → liberação</strong></p></div>
+</div>
+<div class="notice"><strong>O resultado:</strong> Detectar antes → comprovar melhor → decidir mais rápido → devolver à operação.<br><br>A FrotaPro conecta <strong>Câmeras + YOLO + comparação temporal + validação humana + gestão de sinistros</strong> para reduzir incertezas, retrabalho e tempo de veículo parado.<br><br><strong>Nota técnica:</strong> a detecção de avarias depende do treinamento e ajuste do modelo com imagens representativas dos veículos, danos e condições reais da operação.</div>
+<div class="notice" style="background:var(--blue-light);border-color:#93c5fd;color:#1e40af;margin-top:18px"><strong style="display:block;margin-bottom:12px">💰 Impacto potencial no negócio</strong><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center"><div><strong style="font-size:18px">↓ 25%</strong><br><small>tempo de veículo parado</small><br><strong style="font-size:11px">R$ 225 mil potencialmente evitados</strong></div><div><strong style="font-size:18px">↓ 20%</strong><br><small>contestações</small><br><strong style="font-size:11px">R$ 15 mil potencialmente evitados</strong></div><div><strong style="font-size:18px">↓ 10%</strong><br><small>ocorrências escaladas para disputa judicial</small><br><strong style="font-size:11px">R$ 50 mil potencialmente evitados</strong></div><div><strong style="font-size:18px">R$ 290 mil</strong><br><small>Impacto potencial total</small></div></div><small style="display:block;margin-top:12px;line-height:1.4">Valores e percentuais simulados, sujeitos à validação com dados reais da operação.</small></div>
+</div></section>
+
+<section class="solution"><div class="container"><div class="section-label">14 — Solution</div><h2>Plataforma de Vistoria Preventiva (Check-in/Out) & Sinistro Guiado</h2><p class="section-description">Uma jornada em que câmeras com visão computacional identificam automaticamente possíveis avarias na retirada e na entrega do veículo, permitindo detectar o problema imediatamente. A captura manual continua disponível, mas a prioridade é automatizar a identificação para aumentar autonomia, assertividade e velocidade. Reduzindo riscos de disputas, problemas com funcionários, seguros e tempo de veículo parado.</p>
+<div class="solution-grid"><div class="product-screen"><div class="screen"><div class="screen-top">← FrotaPro Mobile</div><h3>Vistoria de Check-in</h3><div class="order-status" style="background:var(--blue-light)"><strong style="color:var(--blue)">📸 Câmeras + YOLO: Detectar Avarias</strong>Entrada e saída monitoradas automaticamente.</div><p class="screen-text">2 avarias pré-existentes identificadas e salvas no histórico do veículo.</p><a class="action">Confirmar Vistoria</a><a class="action secondary">Registrar Manualmente</a></div></div>
+<div class="solution-box"><div class="solution-step"><div class="step-number">1</div><div><strong>Vistoria Preventiva no Check-in</strong><span>Registro obrigatório com silhueta digital na retirada/devolução. O histórico ajuda a isentar o motorista de danos antigos e atribuir novos arranhões ao condutor correto.</span></div></div><div class="solution-step"><div class="step-number">2</div><div><strong>Validação de Qualidade em Tempo Real</strong><span>O sistema rejeita na hora fotos desfocadas, escuras ou fora de ângulo para garantir evidências adequadas para análise e perícia.</span></div></div><div class="solution-step"><div class="step-number">3</div><div><strong>Carimbo Digital Auditável</strong><span>Metadata de GPS, timestamp e ID do condutor fortalecem a rastreabilidade e a validade jurídica e contratual do laudo.</span></div></div><div class="solution-step"><div class="step-number">4</div><div><strong>Triagem Inteligente & Agendamento</strong><span>Direciona pequenos reparos (recauchutagem/funilaria rápida) para oficinas credenciadas e sinistros graves para seguradoras.</span></div></div></div></div>
+<div class="notice" style="background:var(--purple-light);border-color:#c4b5fd;color:#5b21b6;margin-top:35px"><strong style="font-size:15px;display:block;margin-bottom:6px">💡 Diferencial em Relação ao Padrão de Mercado</strong><p style="margin:0;font-size:13px;color:#4c1d95"><strong>O diferencial:</strong> uma plataforma preventiva end-to-end que combina câmeras inteligentes, YOLO, comparação temporal e validação humana para identificar possíveis avarias no momento da entrada e saída do veículo, antes que o problema evolua para disputa, perícia ou longos períodos de indisponibilidade. A automação aumenta autonomia e velocidade, enquanto decisões de responsabilidade e cobrança permanecem sujeitas à validação humana.</p></div>
+</div></section>
+
+<section><div class="container"><div class="section-label">15 — Metrics</div><h2>Impacto Esperado no Case FrotaPro</h2><div class="metrics-grid">
+<div class="card metric-card"><span class="proposed">PREVENÇÃO DE CUSTO</span><h3>Recuperação de Avarias Sem Autoria</h3><p><strong>↓ 75%</strong><br>Redução esperada nos prejuízos com danos não identificados, representando R$ 360 mil/mês potencialmente evitados, considerando o custo simulado de R$ 480 mil/mês.</p></div>
+<div class="card metric-card"><span class="proposed">EFICIÊNCIA OPERACIONAL</span><h3>Queda no Downtime da Frota</h3><p><strong>↓ 80%</strong><br>Redução do tempo médio de liberação de 12,5 para 2,5 dias, aumentando a disponibilidade dos veículos e reduzindo o custo associado à frota parada.</p></div>
+<div class="card metric-card"><span class="proposed">REDUÇÃO DE RECUSAS</span><h3>Aprovação de Perícias</h3><p><strong>↓ 87,5%</strong><br>Redução da taxa de rejeição de laudos de 24% para menos de 3%, diminuindo retrabalho, reenvio de evidências e tempo de análise.</p></div>
+<div class="card metric-card"><span class="proposed">COMPLIANCE & RISCO</span><h3>Disputas Contratuais</h3><p><strong>↓ 20%</strong><br>Redução esperada nas contestações relacionadas à autoria de avarias e qualidade dos registros, com potencial redução de custos com perícias, tratativas e ações judiciais.</p></div>
+</div>
+<div class="notice"><strong>IMPACTO FINANCEIRO SIMULADO</strong><br><br><strong>R$ 360 mil/mês</strong> potencialmente evitados com avarias não identificadas<br><strong>↓ 80%</strong> no tempo de veículo parado<br><strong>↓ 87,5%</strong> nas recusas de perícias<br><strong>↓ 20%</strong> nas contestações e disputas<br><br><small>Premissas simuladas: os percentuais e valores devem ser validados por experimento, dados operacionais e rollout da solução.</small></div>
+</div></section>
+
+<section class="takeaway"><div class="container takeaway-grid"><div><div class="section-label">16 — Takeaway Case 02</div><h2>Resumo da Estratégia</h2><p>A FrotaPro transforma evidências, risco jurídico e operação em uma jornada preventiva: câmeras e visão computacional identificam possíveis avarias na entrada e saída, a comparação temporal fortalece a comprovação, a validação humana preserva a governança e a triagem acelera o reparo e a liberação do veículo.</p></div><ul class="takeaway-list"><li>Detecção preventiva de avarias com Câmeras + YOLO</li><li>Histórico visual para fortalecer responsabilidade e comprovação</li><li>Validação humana para decisões de risco e cobrança</li><li>Triagem rápida para reduzir downtime e retrabalho</li><li>Governança jurídica integrada ao produto sem excesso de fricção</li></ul></div></section>
+
+<section><div class="container"><div class="section-label">17 — Competências</div><h2>Habilidades & Ferramentas</h2><div class="skills">
+<div class="skill">Product Discovery</div><div class="skill">Problem Framing</div><div class="skill">Mapeamento de Jornada (Service Design)</div><div class="skill">Legal Product Design & Compliance</div><div class="skill">Análise de Riscos & Prevenção à Fraude</div><div class="skill">Análise de Dados & Benchmarking</div><div class="skill">LLM & Análise de Texto</div><div class="skill">SQL (Básico / Intermediário)</div><div class="skill">Figma & Prototipagem</div><div class="skill">Gestão de Stakeholders</div>
+</div></div></section>
+
+<footer id="contato"><div class="container"><div class="footer-grid"><div><h3 style="font-size:24px;margin-bottom:8px">Vamos conversar?</h3><p style="color:#98a2b3;font-size:14px">Aberto a oportunidades em Product Management / Product Operations.</p></div><div class="footer-links"><a href="https://www.linkedin.com/in/ana-carolina-vieira-2a7933201/" target="_blank">LinkedIn</a><a href="mailto:contato@exemplo.com">E-mail</a></div></div><div class="disclaimer">© 2026 Ana Carolina. Projeto de portfólio desenvolvido para demonstrar a aplicação de competências jurídicas, análise de risco e gestão de produto digital.</div></div></footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Carolina | Product Management</title>
+
+<style>
+:root{
+    --bg:#f6f7f9;
+    --white:#fff;
+    --text:#172033;
+    --muted:#667085;
+    --line:#e4e7ec;
+    --orange:#ff6b00;
+    --orange-light:#fff1e6;
+    --blue:#2563eb;
+    --blue-light:#eff6ff;
+    --green:#16a34a;
+    --red:#dc2626;
+    --purple:#7c3aed;
+    --purple-light:#f5f3ff;
+    --dark:#111827;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(246,247,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{height:70px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:800}.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:14px;color:#475467}
+.nav-links a:hover{color:var(--orange)}
+section{padding:80px 0}.section-label{color:var(--orange);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+h2{font-size:40px;line-height:1.15;letter-spacing:-1.5px}.section-description{color:var(--muted);width:100%;max-width:100%;margin-top:12px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:25px}.mt40{margin-top:40px}
+.hero{padding:100px 0 80px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.badge{display:inline-flex;background:var(--orange-light);color:#c2410c;border-radius:30px;padding:7px 13px;font-size:12px;font-weight:800;margin-bottom:22px}
+h1{font-size:clamp(45px,6vw,76px);line-height:1;letter-spacing:-4px;margin-bottom:22px}h1 span{color:var(--orange)}
+.hero-description{color:var(--muted);font-size:19px;width:100%;max-width:100%;margin-bottom:28px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{padding:12px 19px;border-radius:9px;border:1px solid var(--dark);font-size:14px;font-weight:700}
+.button.primary{background:var(--dark);color:white}.button.secondary{background:white}
+.hero-panel{background:var(--dark);color:white;padding:30px;border-radius:20px;box-shadow:0 20px 45px rgba(0,0,0,.12)}
+.hero-panel small{color:#98a2b3;text-transform:uppercase;letter-spacing:1px}.hero-panel h2{font-size:30px;line-height:1.15;margin:55px 0}.hero-panel span{color:var(--orange)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about-text p{color:#475467;margin-bottom:16px;width:100%;max-width:100%}.about-card p{color:var(--muted);margin-top:8px;width:100%;max-width:100%}
+.case-intro{background:var(--dark);color:white}.case-top{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
+.case-title{font-size:clamp(40px,5vw,62px);line-height:1;letter-spacing:-3px}.case-subtitle{color:#aab1bd;width:100%;max-width:100%}
+.study-tag{display:inline-block;color:var(--orange);font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:14px}
+.notice{margin-top:25px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:16px 18px;border-radius:12px;font-size:13px;width:100%;max-width:100%}
+.benchmark,.pattern-grid,.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.company{font-size:20px;font-weight:800;margin-bottom:4px}.company-note{color:var(--muted);font-size:11px;margin-bottom:18px}
+.benchmark-number{font-size:30px;font-weight:800;color:var(--orange)}.benchmark-label{font-size:12px;color:#475467;margin-bottom:14px}
+.benchmark-source{font-size:11px;color:var(--blue);padding-top:10px;border-top:1px solid var(--line)}
+.pattern-icon{font-size:25px;margin-bottom:12px}.pattern h3{margin-bottom:7px}.pattern p,.problem-card p{color:var(--muted);font-size:13px;width:100%;max-width:100%}
+.simulated{background:#f1f5f9}.simulated-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:35px}
+.sim-card{background:white;border:1px solid var(--line);border-radius:15px;padding:22px}.sim-card .number{font-size:30px;font-weight:800;color:var(--blue)}
+.sim-card small{color:var(--muted);font-size:11px}.sim-badge,.proposed{display:inline-block;background:var(--blue-light);color:var(--blue);padding:4px 7px;border-radius:5px;font-size:9px;font-weight:800;margin-bottom:10px}
+.board-section{background:#eef0f4}.board{background:#dfe3e8;padding:20px;border-radius:18px;overflow-x:auto;margin-top:35px}
+.board-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;min-width:1050px}.board-title{font-weight:800}.board-meta{font-size:12px;color:#667085}
+.swimlanes{min-width:1050px;display:grid;gap:10px}.lane{display:grid;grid-template-columns:150px repeat(4,1fr);gap:10px}
+.lane-name,.board-cell{background:#f8f9fb;border-radius:10px}.lane-name{padding:14px;font-size:13px;font-weight:800}.board-cell{min-height:125px;padding:11px}
+.column-title{font-size:11px;text-transform:uppercase;color:#667085;font-weight:800}
+.sticky{background:white;border:1px solid #d9dde3;border-left:4px solid var(--orange);border-radius:8px;padding:11px;font-size:12px;box-shadow:0 2px 5px rgba(0,0,0,.04)}
+.sticky.blue{border-left-color:var(--blue)}.sticky.green{border-left-color:var(--green)}.sticky.red{border-left-color:var(--red)}.sticky.purple{border-left-color:var(--purple)}
+.sticky strong{display:block;font-size:12px;margin-bottom:4px}
+.problem-card .number{color:var(--red);font-size:11px;font-weight:800;margin-bottom:16px}.problem-card h3{margin-bottom:7px}
+.legal-section{background:white}.legal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:35px}
+.legal-card{background:#fafafa}.legal-card .tag{display:inline-block;background:var(--purple-light);color:var(--purple);padding:5px 8px;border-radius:5px;font-size:10px;font-weight:800;margin-bottom:13px}
+.legal-card h3{font-size:17px;margin-bottom:7px}.legal-card p{color:var(--muted);font-size:13px;width:100%;max-width:100%}
+.solution{background:#f1f5f9}.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;margin-top:40px}
+.solution-box{background:white;border-radius:18px;padding:28px;border:1px solid var(--line)}
+.solution-step{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}.solution-step:last-child{border-bottom:none}
+.step-number{width:30px;height:30px;background:var(--dark);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.solution-step strong{display:block}.solution-step span{color:var(--muted);font-size:13px}
+.product-screen{background:var(--dark);border-radius:28px;padding:12px;width:100%;max-width:360px;margin:auto;box-shadow:0 25px 50px rgba(0,0,0,.15)}
+.screen{background:white;border-radius:20px;padding:24px}.screen-top{font-size:12px;color:#667085;margin-bottom:22px}
+.order-status{background:var(--orange-light);padding:14px;border-radius:10px;margin:14px 0}.order-status strong{display:block;color:#c2410c}
+.screen-text{font-size:12px;color:#667085}.action{display:block;background:var(--dark);color:white;text-align:center;padding:11px;border-radius:8px;font-size:12px;font-weight:700;margin-top:10px}
+.action.secondary{background:white;color:var(--text);border:1px solid #ddd}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}.metric-card h3{margin-bottom:7px}.metric-card p{color:var(--muted);font-size:14px;width:100%;max-width:100%}
+.takeaway{background:var(--dark);color:white}.takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px}.takeaway p{color:#aab1bd;margin-top:14px;width:100%;max-width:100%}
+.takeaway-list{list-style:none}.takeaway-list li{padding:11px 0;border-bottom:1px solid #333b48}.takeaway-list li::before{content:"→";color:var(--orange);margin-right:10px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}.skill{background:white;border:1px solid var(--line);padding:9px 14px;border-radius:25px;font-size:13px}
+footer{background:#0b0f16;color:white;padding:60px 0}.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.footer-links{display:flex;gap:10px}.footer-links a{border:1px solid #343b48;padding:10px 15px;border-radius:8px;font-size:13px}.footer-links a:hover{border-color:var(--orange);color:var(--orange)}
+.disclaimer{border-top:1px solid #252c37;margin-top:40px;padding-top:18px;color:#667085;font-size:11px;width:100%;max-width:100%}
+.cluster-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px;font-weight:800}
+.flow-step{background:white;border:1px solid var(--line);border-radius:12px;padding:14px 18px}.flow-arrow{color:var(--orange);font-size:20px}
+.cluster-table{width:100%;border-collapse:collapse;margin-top:25px;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cluster-table th,.cluster-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+.cluster-table th{background:#f8f9fb}.cluster-table tr:last-child td{border-bottom:none}
+.chatbot-box{background:var(--purple-light);border:1px solid #ddd6fe;color:#4c1d95;border-radius:15px;padding:20px;margin-top:18px}
+@media(max-width:850px){
+.nav-links{display:none}.hero-grid,.case-top,.about-grid,.solution-grid,.takeaway-grid{grid-template-columns:1fr}
+.benchmark,.pattern-grid,.problem-grid,.legal-grid{grid-template-columns:1fr 1fr}.simulated-grid{grid-template-columns:1fr 1fr}
+.footer-grid{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:550px){
+section{padding:65px 0}h2{font-size:32px}h1{letter-spacing:-2px;font-size:48px}.hero{padding:70px 0}
+.benchmark,.pattern-grid,.problem-grid,.simulated-grid,.legal-grid,.metrics-grid{grid-template-columns:1fr}.hero-panel h2{margin:40px 0}
+}
+</style>
+</head>
+<body>
+
+<header><div class="container"><nav>
+<a href="#" class="logo">Ana<span>.</span></a>
+<ul class="nav-links"><li><a href="#sobre">Sobre</a></li><li><a href="#case1">Case 01</a></li><li><a href="#case2">Case 02</a></li><li><a href="#contato">Contato</a></li></ul>
+</nav></div></header>
+
+<section class="hero"><div class="container hero-grid"><div>
+<div class="badge">PRODUTOS DIGITAOS · LEGAL PRODUCT</div>
+<h1>Direito + Produto + <span>Tecnologia.</span></h1>
+<p class="hero-description">Advogada de Direito Bancário em transição para Produtos digitais, atuando em áreas como Product Manager, Product Owner ou Analista de Produtos.</p>
+<div class="buttons"><a href="#case1" class="button primary">Ver Cases</a><a href="https://www.linkedin.com/in/ana-carolina-vieira-2a7933201/" target="_blank" class="button secondary">LinkedIn</a></div>
+</div><div class="hero-panel"><small>Minha abordagem</small><h2>Investigar o problema antes de <span>desenhar a solução.</span></h2><small>Customer · Business · Technology · Legal</small></div>
+</div></section>
+
+<section id="sobre"><div class="container">
+<div class="section-label">01 — Sobre</div><h2>Uma perspectiva jurídica aplicada a Produto.</h2>
+<p class="section-description">Minha experiência no Direito Bancário desenvolveu competências em análise de riscos, contratos, interpretação normativa, resolução de problemas e comunicação com diferentes áreas.</p>
+<p>Ao conhecer Produtos digitais, encontrei uma área que conecta essas habilidades com tecnologia, negócio e experiência do cliente.</p>
+<p>Minha proposta é utilizar o conhecimento jurídico não apenas para identificar riscos, mas para participar da construção de soluções mais claras, seguras e eficientes.</p>
+</div><div class="card about-card"><strong>Meu foco</strong><p>Produtos e serviços digitais nas áreas financeiras, mobilidade, logística e marketplaces nos quais experiência do cliente, negócio, tecnologia e regulação precisam caminhar juntos.</p></div></div>
+</div></section>
+
+<!-- CASE 02 -->
+<section id="case2" class="case-intro" style="border-top:5px solid var(--orange)"><div class="container"><div class="case-top"><div>
+<div class="study-tag">CASE 02 FICTÍCIO · MOBILIDADE & OPERAÇÕES</div><h2 class="case-title">FrotaPro<br>Gestão Preventiva & Sinistros de Frota</h2>
+</div><p class="case-subtitle">Como prevenir disputas de avarias pré-existentes (check-in/check-out), evitar prejuízos com arranhões não identificados e acelerar a liberação de sinistros com vistoria guiada e manutenção preditiva?<br><br>A FrotaPro é um ecossistema fictício de gestão de frotas e locação de veículos criado para este portfólio.</p>
+</div><div class="notice"><strong>Contexto do Negócio:</strong> Em operações de frotas e locação, a falta de registro prévio do estado do veículo gera perdas milionárias com avarias sem autoria (arranhões, amassados) e atrasos em reformas e perícias de seguros.</div></div></section>
+
+<section><div class="container"><div class="section-label">10 — Problemas Jurídicos</div><h2>Quando uma ocorrência operacional pode virar uma disputa?</h2><p class="section-description">A operação de avarias e sinistros também envolve riscos jurídicos que podem transformar uma ocorrência operacional em disputa, custo ou judicialização.</p>
+<div class="legal-grid">
+<div class="card legal-card"><span class="tag">🛡️ FRAUDE E INCONSISTÊNCIAS</span><h3>Como comprovar o dano?</h3><p>Sem evidências confiáveis, diferenciar uma avaria ocorrida durante a locação de um dano preexistente, omitido ou apresentado de forma inconsistente se torna mais complexo e pode gerar custos adicionais de análise e perícia.</p></div>
+<div class="card legal-card"><span class="tag">⚖️ RESPONSABILIDADE</span><h3>Quem causou a avaria?</h3><p>Quando não existe um registro confiável do estado do veículo antes e depois da utilização, a empresa pode ter dificuldade para sustentar a atribuição de responsabilidade, aumentando o risco de contestação, cobrança indevida e conflito com o cliente.</p></div>
+<div class="card legal-card"><span class="tag">🔎 PERÍCIA</span><h3>Como comprovar o sinistro?</h3><p>Evidências insuficientes podem exigir perícia, documentos adicionais ou novas análises. Quanto mais complexa a comprovação, maior pode ser o tempo de resolução e o custo operacional.</p></div>
+<div class="card legal-card"><span class="tag">📄 DOCUMENTAÇÃO</span><h3>Quanto é necessário provar?</h3><p>Documentação insuficiente pode impedir a análise adequada. Documentação excessiva pode aumentar o atrito sem agregar valor à decisão. O desafio é provar o necessário sem exigir o que é desnecessário.</p></div>
+</div>
+<div class="notice"><strong>⚠️ Evolução do risco:</strong> uma avaria pode começar como um problema operacional e evoluir para <strong>avaria → contestação → sinistro → perícia → disputa → possível judicialização.</strong> Por isso, qualidade da evidência e rastreabilidade ajudam a reduzir riscos jurídicos e financeiros.</div>
+</div></section>
+
+<section class="simulated"><div class="container"><div class="section-label">11 — Dados Simulados da FrotaPro</div><h2>Cenário operacional e financeiro antes do produto</h2><p class="section-description">O cenário abaixo é simulado para demonstrar como uma ocorrência operacional pode gerar custos diretos e indiretos para a operação.</p><div class="simulated-grid">
+<div class="sim-card"><span class="sim-badge">SIMULADO</span><div class="number">R$ 480 mil</div><strong>custo mensal estimado com avarias não identificadas</strong><small>Arranhões e danos descobertos após a devolução, sem evidência suficiente para atribuição de responsabilidade.</small></div>
+<div class="sim-card"><span class="sim-badge">SIMULADO</span><div class="number">12,5 dias</div><strong>tempo médio estimado para liberação</strong><small>Período entre o aviso da ocorrência e o início do reparo, considerando triagem, análise e resolução do caso.</small></div>
+<div class="sim-card"><span class="sim-badge">SIMULADO</span><div class="number">24%</div><strong>sinistros recusados na 1ª análise</strong><small>Ocorrências que exigem reenvio ou complementação de evidências, aumentando o retrabalho e prolongando o tempo de resolução.</small></div>
+<div class="sim-card"><span class="sim-badge">SIMULADO</span><div class="number">15%</div><strong>fração estimada da frota inativa por avaria</strong><small>Veículos parados aguardando triagem, autorização ou reparo.</small></div>
+</div>
+<div class="notice"><strong>Veículo parado = capacidade de locação indisponível = potencial receita não gerada.</strong><br><br>O impacto financeiro não termina no reparo. Uma avaria pode gerar uma cadeia de custos: <strong>dano não identificado → contestação / sinistro → retrabalho → veículo parado → menor disponibilidade da frota → potencial perda de receita.</strong><br><br>Por isso, reduzir o tempo de resolução de uma avaria não é apenas uma melhoria operacional. É uma oportunidade de reduzir custos e recuperar disponibilidade da frota.</div>
+</div></section>
+
+<section class="legal-section"><div class="container"><div class="section-label">12 — Legal & Compliance Lens</div><h2>Transformando riscos jurídicos em regras de produto</h2><p class="section-description">Vistorias e aberturas de sinistro dependem de evidências confiáveis e informações rastreáveis. Quando essas evidências são incompletas, a operação pode entrar em um ciclo de contestação, retrabalho, demora na análise e veículo parado. A perspectiva jurídica entra para transformar esses riscos em regras de produto, criando requisitos que aumentem a segurança da operação sem tornar a jornada excessivamente complexa.</p>
+<div class="legal-grid">
+<div class="card legal-card"><span class="tag">CONTRATOS</span><h3>Registro de Avarias</h3><p>Registro fotográfico na retirada e devolução para diferenciar danos preexistentes de novos danos e fortalecer a comprovação da ocorrência.</p></div>
+<div class="card legal-card"><span class="tag">SEGUROS</span><h3>Padrão Probatório</h3><p>Definição dos requisitos mínimos de imagem e informação para reduzir recusas, reenvios e retrabalho na análise de sinistros.</p></div>
+<div class="card legal-card"><span class="tag">LGPD</span><h3>Tratamento de Dados</h3><p>Regras para coleta, utilização e armazenamento de documentos e dados de terceiros envolvidos no acidente, considerando a necessidade e finalidade de cada informação.</p></div>
+<div class="card legal-card"><span class="tag">AUDITORIA</span><h3>Registros Auditáveis</h3><p>Registro de geolocalização, horário, veículo e identificação da operação, criando uma trilha de evidências para análise, contestação e auditoria.</p></div>
+</div></div></section>
+
+<section><div class="container"><div class="section-label">13 — Discovery & Gargalos da Operação</div><h2>Por que processos de vistoria e sinistro tradicionais geram tanto prejuízo?</h2><p class="section-description">Vistorias e aberturas de sinistro dependem de evidências confiáveis e informações rastreáveis. Quando essas evidências são incompletas, a operação pode entrar em um ciclo de contestação, retrabalho, demora na análise e veículo parado.</p>
+<div class="pattern-grid">
+<div class="card pattern"><div class="pattern-icon">🔍</div><h3>Avarias e Arranhões Sem Autoria</h3><p>Condutores devolvem o veículo com pequenos danos. Quando a vistoria é pouco padronizada, a empresa pode ter dificuldade para comprovar quando e como a avaria ocorreu.</p><p style="margin-top:12px"><strong>Solução FrotaPro — Câmeras Inteligentes + YOLO</strong><br>Câmeras instaladas nos pontos de entrada e saída capturam automaticamente imagens dos veículos. Um modelo de visão computacional baseado em YOLO identifica o veículo e possíveis avarias, gerando evidências padronizadas e alertas para triagem.</p><p style="margin-top:12px"><strong>Entrada → captura automática → detecção → comparação com histórico → alerta de avaria → validação</strong></p></div>
+<div class="card pattern"><div class="pattern-icon">📸</div><h3>Fotos Inválidas / Incompletas</h3><p>Fotos escuras, desfocadas ou que não mostram adequadamente o dano podem gerar retrabalho, dificultar a análise do sinistro e aumentar o tempo de resolução.</p><p style="margin-top:12px"><strong>Solução FrotaPro — Captura Padronizada</strong><br>A captura de evidências segue padrões definidos pelo produto, com apoio de IA para identificar possíveis problemas na qualidade do registro. Quando a evidência não for suficiente, o sistema pode solicitar uma nova captura antes de encaminhar o caso.</p><p style="margin-top:12px"><strong>Menos evidência inválida → menos reenvio → menos retrabalho → análise mais rápida.</strong></p></div>
+<div class="card pattern"><div class="pattern-icon">🛡️</div><h3>Seguro, Fraudes e Responsabilidade</h3><p>Sem um histórico confiável do estado do veículo, torna-se mais difícil diferenciar avaria preexistente, novo dano e dano decorrente de acidente.</p><p style="margin-top:12px"><strong>Solução FrotaPro — Linha do Tempo Visual do Veículo</strong><br>A solução conecta imagens, data, horário, localização e informações da ocorrência, criando um histórico do estado do veículo.</p><p style="margin-top:12px">O modelo de visão computacional identifica possíveis alterações, enquanto as evidências são encaminhadas para validação humana, sem que a IA tome sozinha decisões de responsabilidade ou cobrança.</p></div>
+<div class="card pattern"><div class="pattern-icon">⏳</div><h3>Alto Downtime do Veículo</h3><p>Sem uma triagem rápida entre reparos simples e sinistros complexos, o veículo pode permanecer parado aguardando análise, perícia, autorização ou reparo.</p><p style="margin-top:12px"><strong>Solução FrotaPro — Triagem e Gestão de Avarias</strong><br>A ocorrência identificada é direcionada para o fluxo adequado, permitindo priorizar casos e acompanhar sua resolução.</p><p style="margin-top:12px"><strong>Avaria identificada → triagem → validação → encaminhamento → reparo → liberação</strong></p></div>
+</div>
+<div class="notice"><strong>O resultado:</strong> Detectar antes → comprovar melhor → decidir mais rápido → reparar → devolver o veículo à operação.<br><br>A FrotaPro conecta <strong>Câmeras + YOLO + comparação temporal + validação humana + gestão de sinistros</strong> para reduzir incertezas, retrabalho e tempo de veículo parado.<br><br><strong>Nota técnica:</strong> a detecção de avarias dependeria do treinamento e ajuste do modelo com imagens representativas dos veículos, tipos de dano e condições reais da operação.</div>
+<div class="notice" style="background:var(--blue-light);border-color:#93c5fd;color:#1e40af"><strong>💰 Impacto potencial no negócio</strong><br><br><strong>↓ 25% no tempo de veículo parado</strong> — menor indisponibilidade da frota — <strong>R$ 225 mil potencialmente evitados</strong><br><strong>↓ 20% nas contestações</strong> — menos retrabalho e tratativas — <strong>R$ 15 mil potencialmente evitados</strong><br><strong>↓ 10% nas ocorrências escaladas para disputa judicial</strong> — menor custo com ações e tratamento jurídico — <strong>R$ 50 mil potencialmente evitados</strong><br><br><strong>Impacto potencial total: R$ 290 mil</strong><br><br><small>Cenário simulado: os percentuais e valores acima são hipóteses para demonstrar como o produto poderia gerar impacto financeiro. Precisariam ser validados com dados reais da operação.</small></div>
+</div></section>
+
+<section class="solution"><div class="container"><div class="section-label">14 — Solution</div><h2>Plataforma de Vistoria Preventiva (Check-in/Out) & Sinistro Guiado</h2><p class="section-description">Uma jornada em que câmeras com visão computacional identificam automaticamente possíveis avarias na retirada e na entrega do veículo, permitindo detectar o problema imediatamente. A captura manual continua disponível, mas a prioridade é automatizar a identificação para aumentar autonomia, assertividade e velocidade — reduzindo riscos de disputas, problemas com funcionários, seguros e tempo de veículo parado.</p>
+<div class="solution-grid"><div class="product-screen"><div class="screen"><div class="screen-top">← FrotaPro Mobile</div><h3>Vistoria de Check-in</h3><div class="order-status" style="background:var(--blue-light)"><strong style="color:var(--blue)">📸 Câmeras + YOLO: Detectar Avarias</strong>Entrada e saída monitoradas automaticamente.</div><p class="screen-text">2 avarias pré-existentes identificadas e salvas no histórico do veículo.</p><a class="action">Confirmar Vistoria</a><a class="action secondary">Registrar Manualmente</a></div></div>
+<div class="solution-box"><div class="solution-step"><div class="step-number">1</div><div><strong>Vistoria Preventiva no Check-in</strong><span>Registro obrigatório com silhueta digital na retirada/devolução. O histórico ajuda a isentar o motorista de danos antigos e atribuir novos arranhões ao condutor correto.</span></div></div><div class="solution-step"><div class="step-number">2</div><div><strong>Validação de Qualidade em Tempo Real</strong><span>O sistema rejeita na hora fotos desfocadas, escuras ou fora de ângulo para garantir evidências adequadas para análise e perícia.</span></div></div><div class="solution-step"><div class="step-number">3</div><div><strong>Carimbo Digital Auditável</strong><span>Metadata de GPS, timestamp e ID do condutor fortalecem a rastreabilidade e a validade jurídica e contratual do laudo.</span></div></div><div class="solution-step"><div class="step-number">4</div><div><strong>Triagem Inteligente & Agendamento</strong><span>Direciona pequenos reparos (recauchutagem/funilaria rápida) para oficinas credenciadas e sinistros graves para seguradoras.</span></div></div></div></div>
+<div class="notice" style="background:var(--purple-light);border-color:#c4b5fd;color:#5b21b6;margin-top:35px"><strong style="font-size:15px;display:block;margin-bottom:6px">💡 Diferencial em Relação ao Padrão de Mercado</strong><p style="margin:0;font-size:13px;color:#4c1d95"><strong>O diferencial:</strong> uma plataforma preventiva end-to-end que combina câmeras inteligentes, YOLO, comparação temporal e validação humana para identificar possíveis avarias no momento da entrada e saída do veículo, antes que o problema evolua para disputa, perícia ou longos períodos de indisponibilidade. A automação aumenta autonomia e velocidade, enquanto decisões de responsabilidade e cobrança permanecem sujeitas à validação humana.</p></div>
+</div></section>
+
+<section><div class="container"><div class="section-label">15 — Metrics</div><h2>Impacto Esperado no Case FrotaPro</h2><div class="metrics-grid">
+<div class="card metric-card"><span class="proposed">PREVENÇÃO DE CUSTO</span><h3>Recuperação de Avarias Sem Autoria</h3><p><strong>↓ 75%</strong><br>Redução esperada nos prejuízos com danos não identificados, representando R$ 360 mil/mês potencialmente evitados, considerando o custo simulado de R$ 480 mil/mês.</p></div>
+<div class="card metric-card"><span class="proposed">EFICIÊNCIA OPERACIONAL</span><h3>Queda no Downtime da Frota</h3><p><strong>↓ 80%</strong><br>Redução do tempo médio de liberação de 12,5 para 2,5 dias, aumentando a disponibilidade dos veículos e reduzindo o custo associado à frota parada.</p></div>
+<div class="card metric-card"><span class="proposed">REDUÇÃO DE RECUSAS</span><h3>Aprovação de Perícias</h3><p><strong>↓ 87,5%</strong><br>Redução da taxa de rejeição de laudos de 24% para menos de 3%, diminuindo retrabalho, reenvio de evidências e tempo de análise.</p></div>
+<div class="card metric-card"><span class="proposed">COMPLIANCE & RISCO</span><h3>Disputas Contratuais</h3><p><strong>↓ 20%</strong><br>Redução esperada nas contestações relacionadas à autoria de avarias e qualidade dos registros, com potencial redução de custos com perícias, tratativas e ações judiciais.</p></div>
+</div>
+<div class="notice"><strong>IMPACTO FINANCEIRO SIMULADO</strong><br><br><strong>R$ 360 mil/mês</strong> potencialmente evitados com avarias não identificadas<br><strong>↓ 80%</strong> no tempo de veículo parado<br><strong>↓ 87,5%</strong> nas recusas de perícias<br><strong>↓ 20%</strong> nas contestações e disputas<br><br><small>Premissas simuladas: os percentuais e valores devem ser validados por experimento, dados operacionais e rollout da solução.</small></div>
+</div></section>
+
+<section class="takeaway"><div class="container takeaway-grid"><div><div class="section-label">16 — Takeaway Case 02</div><h2>Resumo da Estratégia</h2><p>A FrotaPro transforma evidências, risco jurídico e operação em uma jornada preventiva: câmeras e visão computacional identificam possíveis avarias na entrada e saída, a comparação temporal fortalece a comprovação, a validação humana preserva a governança e a triagem acelera o reparo e a liberação do veículo.</p></div><ul class="takeaway-list"><li>Detecção preventiva de avarias com Câmeras + YOLO</li><li>Histórico visual para fortalecer responsabilidade e comprovação</li><li>Validação humana para decisões de risco e cobrança</li><li>Triagem rápida para reduzir downtime e retrabalho</li><li>Governança jurídica integrada ao produto sem excesso de fricção</li></ul></div></section>
+
+<section><div class="container"><div class="section-label">17 — Competências</div><h2>Habilidades & Ferramentas</h2><div class="skills">
+<div class="skill">Product Discovery</div><div class="skill">Problem Framing</div><div class="skill">Mapeamento de Jornada (Service Design)</div><div class="skill">Legal Product Design & Compliance</div><div class="skill">Análise de Riscos & Prevenção à Fraude</div><div class="skill">Análise de Dados & Benchmarking</div><div class="skill">LLM & Análise de Texto</div><div class="skill">SQL (Básico / Intermediário)</div><div class="skill">Figma & Prototipagem</div><div class="skill">Gestão de Stakeholders</div>
+</div></div></section>
+
+<footer id="contato"><div class="container"><div class="footer-grid"><div><h3 style="font-size:24px;margin-bottom:8px">Vamos conversar?</h3><p style="color:#98a2b3;font-size:14px">Aberto a oportunidades em Product Management / Product Operations.</p></div><div class="footer-links"><a href="https://www.linkedin.com/in/ana-carolina-vieira-2a7933201/" target="_blank">LinkedIn</a><a href="mailto:contato@exemplo.com">E-mail</a></div></div><div class="disclaimer">© 2026 Ana Carolina. Projeto de portfólio desenvolvido para demonstrar a aplicação de competências jurídicas, análise de risco e gestão de produto digital.</div></div></footer>
+</body>
+</html>

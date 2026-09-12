@@ -193,3 +193,43 @@ footer{background:#0b0f16;color:white;padding:60px 0}
  .benchmark,.pattern-grid,.problem-grid,.simulated-grid,.legal-grid,.metrics-grid{grid-template-columns:1fr}
  .hero-panel h2{margin:40px 0}
 }
+
+/* Refinamentos de conteúdo mantendo o layout original */
+.validation-note{
+ margin-top:14px;color:var(--muted);font-size:12px;
+ padding-left:12px;border-left:3px solid var(--orange)
+}
+.yolo-flow{
+ display:flex;align-items:center;justify-content:center;gap:9px;
+ flex-wrap:wrap;margin-top:30px
+}
+.yolo-flow .flow-step{
+ text-align:center;min-width:120px;font-size:12px
+}
+.yolo-flow .flow-step small{font-weight:500;color:var(--muted)}
+.yolo-step{
+ background:var(--dark)!important;color:white!important;border-color:var(--dark)!important
+}
+.yolo-step small{color:#aab1bd!important}
+.legal-context{
+ margin-top:30px;background:var(--dark);color:white;border-radius:18px;
+ padding:26px;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center
+}
+.legal-context-text p{color:#c5cad3;font-size:13px;margin-top:8px}
+.legal-kicker{
+ display:inline-block;color:var(--orange);font-size:10px;font-weight:800;
+ letter-spacing:1px;margin-bottom:7px
+}
+.legal-mini-flow{
+ display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap
+}
+.legal-mini-flow span{
+ background:#1c2533;border:1px solid #344054;border-radius:8px;
+ padding:8px 10px;font-size:11px;font-weight:700
+}
+.legal-mini-flow b{color:var(--orange)}
+.problem-card h3{font-size:17px;margin-bottom:8px}
+.problem-card p{line-height:1.65}
+@media(max-width:850px){
+ .legal-context{grid-template-columns:1fr}
+}
